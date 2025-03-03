@@ -6,21 +6,6 @@ import joblib  # For loading your trained model
 import spacy
 from spacy.cli import download
 
-
-# Check if Rust is installed
-rust_path = shutil.which("rustc")
-if rust_path:
-    st.write(f"Rust is installed at: {rust_path}")
-else:
-    st.write("Rust is not found. Please check the setup.")
-
-# Try loading the spaCy model, and if it fails, download it
-try:
-    nlp = spacy.load("en_core_web_sm")
-except:
-    download("en_core_web_sm")  # This will download the model
-    nlp = spacy.load("en_core_web_sm")
-
 # Load your trained model and vectorizer
 model = joblib.load('outage_risk_stacking_model.joblib')  # Load your trained model
 vectorizer = joblib.load('vectorizer.joblib')  # Load the saved vectorizer
