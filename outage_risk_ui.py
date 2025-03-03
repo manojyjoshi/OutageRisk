@@ -1,3 +1,9 @@
+import os
+
+# Install Rust compiler (only if it's not installed already)
+os.system('curl --proto "=https" --tlsv1.2 -sSf https://sh.rustup.rs | sh')
+os.system('source $HOME/.cargo/env')
+
 import streamlit as st
 import pandas as pd
 import joblib  # For loading your trained model
