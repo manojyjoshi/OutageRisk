@@ -1,14 +1,17 @@
 import os
-
-# Install Rust compiler (only if it's not installed already)
-os.system('curl --proto "=https" --tlsv1.2 -sSf https://sh.rustup.rs | sh')
-os.system('source $HOME/.cargo/env')
-
+import shutil
 import streamlit as st
 import pandas as pd
 import joblib  # For loading your trained model
 import spacy
 from spacy.cli import download
+
+# Check if Rust is installed
+rust_path = shutil.which("rustc")
+if rust_path:
+    st.write(f"Rust is installed at: {rust_path}")
+else:
+    st.write("Rust is not found. Please check the setup.")
 
 # Try loading the spaCy model, and if it fails, download it
 try:
@@ -16,7 +19,6 @@ try:
 except:
     download("en_core_web_sm")  # This will download the model
     nlp = spacy.load("en_core_web_sm")
-
 
 # Load your trained model and vectorizer
 model = joblib.load('outage_risk_stacking_model.joblib')  # Load your trained model
