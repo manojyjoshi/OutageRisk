@@ -6,6 +6,17 @@ import joblib  # For loading your trained model
 import spacy
 from spacy.cli import download
 
+import os
+
+model_name = "en_core_web_sm"
+model_path = os.path.join(os.getcwd(), model_name)  # Download to current working directory
+
+try:
+    nlp = spacy.load(model_path)
+except OSError:
+    spacy.cli.download(model_name, output_dir=os.getcwd())
+    nlp = spacy.load(model_path)
+
 # Check if Rust is installed
 rust_path = shutil.which("rustc")
 if rust_path:
