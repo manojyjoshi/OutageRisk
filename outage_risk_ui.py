@@ -9,12 +9,12 @@ from spacy.cli import download
 import os
 
 model_name = "en_core_web_sm"
-model_path = os.path.join(os.getcwd(), model_name)  # Download to current working directory
+model_path = model_name
 
 try:
     nlp = spacy.load(model_path)
 except OSError:
-    spacy.cli.download(model_name, output_dir=os.getcwd())
+    spacy.cli.download(model_name)
     nlp = spacy.load(model_path)
 
 # Check if Rust is installed
