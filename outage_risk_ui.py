@@ -6,6 +6,7 @@ import joblib  # For loading your trained model
 import spacy
 from spacy.cli import download
 
+import spacy
 import os
 
 model_name = "en_core_web_sm"
