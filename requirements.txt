@@ -1,7 +1,1 @@
 streamlit==1.30.0
-transformers==4.35.2
-tokenizers==0.14
-pandas==1.4.0
-numpy>=1.24.2
-scikit-learn==1.6.1
-xgboost==1.5.0
