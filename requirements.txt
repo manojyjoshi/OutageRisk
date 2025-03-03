@@ -3,6 +3,8 @@ joblib
 pandas
 numpy
 scikit-learn
+xgboost
 transformers
 torch
 spacy
+en_core_web_sm
